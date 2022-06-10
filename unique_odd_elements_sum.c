@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main()
+{
+    int n,arr[100],i,c,fre[10],s=0,j;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]); 
+        fre[i]=-1;
+    }
+    for(i=0;i<n;i++)
+    {
+        c=1;
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[i]==arr[j])
+            {
+                c++;
+                fre[i]=0;
+            }
+        }
+        if(fre[i]!=0)
+        {
+            fre[i]=c;
+        }
+    }
+    for(i=0;i<n;i++)
+    {
+        if(fre[i]==1)
+        {
+            if(arr[i]%2)
+            {
+                s+=arr[i];
+            }
+        }
+    }
+    printf("%d",s);
+}
